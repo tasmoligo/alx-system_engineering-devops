@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # 1-list_your_processes: displays a list of currently running processes.
-ps -ux
+ps -u -a -x -f

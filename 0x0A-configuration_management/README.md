@@ -1,9 +1,9 @@
-<center><h1>Configuration management</h1></center><br><br>
+<center><h1>Configuration management</h1></center><br>
 <h2>Introduction<h2>
-<p>configuration management (CM) refers to the process of systematically
+<p>Configuration management (CM) refers to the process of systematically
 handling changes to a system in a way that it maintains integrity over time.
 Even though this process was not originated in the IT industry, the term is
-broadly used to refer to server configuration management.</p><br><br>
+broadly used to refer to server configuration management.</p><br>
 <h2>Benefits of Configuration Management for Servers</h2>
 <p>1. Quick Provisioning of New Servers</p>
 <p>2. Quick Recovery from Critical Events</p?
@@ -15,9 +15,9 @@ broadly used to refer to server configuration management.</p><br><br>
 <p>2. Learning Curve</p>
 <p>3. Cost</p>
 <p>4. Advanced Tooling</p>
-<p>5. Community and Support</p><br><br><br>
+<p>5. Community and Support</p>
 <h2>Install puppet</h2>
-<p>$ apt-get install -y ruby=1:2.7+1 --allow-downgrades</p><br>
+<p>$ apt-get install -y ruby=1:2.7+1 --allow-downgrades</p>
 <p>$ apt-get install -y ruby-augeas</p>
 <p>$ apt-get install -y ruby-shadow</p>
 <p>$ apt-get install -y puppet</p>

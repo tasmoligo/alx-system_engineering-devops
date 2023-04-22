@@ -1,4 +1,4 @@
-<center>Server</center>
+<h1 style="text-align: center;">Server</h1>
 <p>In computing, a server is a piece of computer hardware or software (computer program) that provides functionality for other programs or devices, called
 "clients." This architecture is called the client–server model. Servers can
 provide various functionalities, often called "services," such as sharing data

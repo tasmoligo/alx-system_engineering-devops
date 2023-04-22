@@ -35,10 +35,10 @@ details about the connection type they would like to establish.</p>
 <h3>Copying your Public SSH Key to a Server with SSH-Copy-ID</h3>
 <p> $ ssh-copy-id username@remote_host</p>
 <h3>Connecting to a Remote Server</h3>
-<p>If username on your local machine is the same as that on the remote
-server</p>
+<h4>If username on your local machine is the same as that on the remote
+server</h4>
 <p> $ ssh remote_host</p>
-<p>If username is different on the remoter server</p>
+<h4>If username is different on the remoter server</h4>
 <p> $ ssh username@remote_host</p>
 <h3>Running a Single Command on a Remote Server</h3>
 <p> $ ssh username@remote_host command_to_run</p>

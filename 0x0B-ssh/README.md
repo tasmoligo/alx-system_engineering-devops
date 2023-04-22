@@ -1,3 +1,4 @@
+<center>Server</center>
 <p>In computing, a server is a piece of computer hardware or software (computer program) that provides functionality for other programs or devices, called
 "clients." This architecture is called the client–server model. Servers can
 provide various functionalities, often called "services," such as sharing data
@@ -32,12 +33,12 @@ details about the connection type they would like to establish.</p>
 <h3>Displaying the SSH Key Fingerprint</h3>
 <p> $ ssh-keygen -l</p>
 <h3>Copying your Public SSH Key to a Server with SSH-Copy-ID</h3>
-<p>ssh-copy-id username@remote_host</p>
+<p> $ ssh-copy-id username@remote_host</p>
 <h3>Connecting to a Remote Server</h3>
 <p>If username on your local machine is the same as that on the remote
 server</p>
-<p>ssh remote_host</p>
+<p> $ ssh remote_host</p>
 <p>If username is different on the remoter server</p>
 <p> $ ssh username@remote_host</p>
 <h3>Running a Single Command on a Remote Server</h3>
-<p>ssh username@remote_host command_to_run</p>
+<p> $ ssh username@remote_host command_to_run</p>

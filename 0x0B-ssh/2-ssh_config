@@ -1,0 +1,9 @@
+Include /etc/ssh/ssh_config.d/*.conf
+Host *
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    PasswordAuthentication no
+Host 168185-web-01
+    User ubuntu
+    HostName 35.168.2.135
+    IdentityFile ~/.ssh/school

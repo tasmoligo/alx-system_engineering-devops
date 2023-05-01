@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# 2-while_best_school: displays Best School 10 times.
+
+x=1
+while [ $x -le 10 ]
+do
+	echo "Best School"
+	x=$(( x + 1 ))
+done

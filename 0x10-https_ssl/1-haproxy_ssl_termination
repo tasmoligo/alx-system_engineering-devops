@@ -40,7 +40,7 @@ frontend myfrontend
         bind *:80
         mode http
         default_backend myservers
-        bind *:443 ssl crt /etc/haproxy/certs/www.tasieibiam.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.tasieibiam.tech.pem
         http-request redirect scheme https unless { ssl_fc }
 
 backend myservers

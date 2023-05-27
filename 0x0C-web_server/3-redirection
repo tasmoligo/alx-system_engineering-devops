@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Installs and configures nginx with permanent redirction
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+REDIR="/^\server_name.*/a \\n\t\trewrite ^/redirect_me https://www.google.com permanent;"
+sudo sed -i "$REDIR" /etc/nginx/sites-available/default
+sudo service nginx start

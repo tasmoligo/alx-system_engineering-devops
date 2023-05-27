@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Installs and configures nginx with permanent redirction and 404 page
+# Installs and configures nginx with permanent redirction and 404 error
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
-REDIR="/\sserver_name.*/a\\\n\trewrite /redirect_me https://www.google.com permanent;"
-sudo sed -i "$REDIR" /etc/nginx/sites-available/tasieibiam.tech
-sudo sed -i '/^\slocation.*/i\\terror_page 404 /custom_404.html;\n' /etc/nginx/sites-available/tasieibiam.tech
+FILE="/etc/nginx/sites-available/tasieibiam.tech"
+REDIR="\\\tlocation /redirect_me {\n\t\t return 301 https://www.google.com;\n\t}\n"
+ERR404="/^\slocation.*/i\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+sudo sed -i "47i '$REDIR'" "$FILE"
+sudo sed -i "$ERR404" "$FILE"
 sudo service nginx start

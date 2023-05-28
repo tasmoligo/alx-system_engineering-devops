@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs and configures HAproxy on load balancer.
+# Installs and configures HAproxy load balancer.
 
 sudo apt-get update
 sudo apt-get install software-properties-common
@@ -8,12 +8,10 @@ sudo apt-get install haproxy
 
 FILE="/etc/haproxy/haproxy.cfg"
 FRONTEND="frontend myfrontend\n\tbind *:80\n\tmode http\n\tdefault_backend myservers\n"
-BACKEND="backend myservers\n\tbalance roundrobin\n\tserver 168185-web-01 100.25.153.68:80 check\n\tserver 168185-web-02 100.26.212.224:80 check\n"
+BACKEND="backend myservers\n\tbalance roundrobin\n\tserver 168185-web-01 54.85.94.223:80 check\n\tserver 168185-web-02 54.90.47.138:80 check"
 
 echo "ENABLED=1" >> /etc/default/haproxy
-sudo cp "$FILE" /etc/haproxy/haproxy_copy
-sudo mv "$FILE"{,.original}
-sudo mv /etc/haproxy/haproxy_copy "$FILE"
+sudo cp "$FILE" /etc/haproxy/haproxy_default
 
 echo -e "$FRONTEND" >> "$FILE"
 echo -e "$BACKEND" >> "$FILE"

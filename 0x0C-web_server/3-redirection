@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Installs and configures nginx with permanent redirction
-
-sudo apt-get -y update
-sudo apt-get -y install nginx
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-REDIR="\\\tlocation /redirect_me {\n\t\t return 301 https://www.google.com;\n\t}\n"
-sudo sed -i "47i '$REDIR'" /etc/nginx/sites-available/tasieibiam.tech
-sudo service nginx start

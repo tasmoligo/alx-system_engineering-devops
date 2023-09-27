@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# debugs the Apache error
-sudo service apache2 start

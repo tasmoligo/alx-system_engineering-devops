@@ -9,7 +9,7 @@ exec { 'install_flask':
   unless  => 'pip3 show Flask | grep -q "Version: 2.1.0"',
   require => Package['python3-pip'],
 }
-exec {
+exec { 'Install_werkzeug':
   command => 'pip install werkzeug==2.1.1',
   path    => '/usr/bin/',
 }

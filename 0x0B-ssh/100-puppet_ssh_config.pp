@@ -3,12 +3,12 @@
 
 file_line { 'use private key':
     ensure  => present,
-    line    => 'IdentityFile ~/.ssh/school',
     path    => '/etc/ssh/sshd_config',
+    line    => 'IdentityFile ~/.ssh/school',
 }
 
 file_line { 'disable password':
     ensure  => present,
-    line    => 'PasswordAuthentication no',
     path    => '/etc/ssh/ssh_config',
+    line    => 'PasswordAuthentication no',
 }

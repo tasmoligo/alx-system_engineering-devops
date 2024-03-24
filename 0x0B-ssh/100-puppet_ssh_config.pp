@@ -2,13 +2,13 @@
 # can connect to a server without typing a password.
 
 file_line { 'use private key':
-    ensure  => present,
+    ensure  => 'present',
     line    => 'IdentityFile ~/.ssh/school',
     path    => '/etc/ssh/sshd_config',
 }
 
 file_line { 'disable password':
-    ensure  => present,
+    ensure  => 'present',
     line    => 'PasswordAuthentication no',
     path    => '/etc/ssh/sshd_config',
 }

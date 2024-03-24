@@ -3,7 +3,7 @@
 
 file_line { 'use private key':
     ensure  => present,
-    path    => '/etc/ssh/sshd_config',
+    path    => '/etc/ssh/ssh_config',
     line    => 'IdentityFile ~/.ssh/school',
 }
 

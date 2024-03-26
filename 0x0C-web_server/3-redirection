@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Installs nginx server
+sudo apt -y update
+sudo apt -y install nginx
+sudo echo "Hello World!" > /var/www/html/index.html
+redirect_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/https://github.com/tasmoligo permanent;"
+sudo sed -i "s/server_name _;/$redirect_string/" /etc/nginx/sites-enabled/default
+sudo service nginx start

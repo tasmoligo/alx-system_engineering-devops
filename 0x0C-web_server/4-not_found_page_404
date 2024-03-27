@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Installs nginx server
+sudo apt -y update
+sudo apt -y install nginx
+sudo echo "Hello World!" > /var/www/html/index.html
+redirect_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/https://github.com/tasmoligo permanent;"
+sudo sed -i "s@server_name _;@$redirect_string@" /etc/nginx/sites-enabled/default
+sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
+404_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \
+\/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$404_string/" /etc/nginx/sites-enabled/default
+sudo service nginx start

@@ -2,13 +2,5 @@
 # Installs nginx server
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
-echo "<!DOCTYPE html>
-    <html>
-    <head>
-    </head>
-    <body>
-        <p>Hello World!</p>
-    </body>
-    </html>" | sudo tee /var/www/html/index.html
-service nginx start
+sudo echo "Hello World!" > /var/www/html/index.html
+sudo service nginx start

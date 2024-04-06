@@ -2,14 +2,14 @@
 # Installs nginx server and configures redirection
 sudo apt-get update
 sudo apt-get -y install nginx
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # handles permanent redirection
 sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me \
 ^\/gnu.org permanent;/" /etc/nginx/sites-enabled/default
 
 # handles 404 error
-sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 sudo sed -i "s/server_name _;/server_name _;\n\terror_page 404 ^\/404.html/" \
 /etc/nginx/sites-enabled/default
 sudo sed -i "s/=404;/^\/404.html;/" /etc/nginx/sites-enabled/default

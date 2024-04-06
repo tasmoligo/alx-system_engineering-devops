@@ -10,7 +10,7 @@ sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me \
 
 # handles 404 error
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-sudo sed -i "s/server_name _;/server_name _;\n\terror_page 404 ^\/404.html/" \
+sudo sed -i "s/server_name _;/server_name _;\nerror_page 404 ^\/404.html/" \
 /etc/nginx/sites-enabled/default
 sudo sed -i "s/=404;/^\/404.html;/" /etc/nginx/sites-enabled/default
 

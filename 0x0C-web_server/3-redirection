@@ -6,6 +6,6 @@ sudo echo "Hello World!" > /var/www/html/index.html
 
 # handles permanent redirection
 sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me \
-^\/gnu.org permanent;/" /etc/nginx/sites-available/default
+^\/gnu.org permanent;/" /etc/nginx/sites-enabled/default
 
 sudo service nginx restart

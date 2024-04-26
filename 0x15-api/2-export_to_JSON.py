@@ -19,7 +19,8 @@ if __name__ == "__main__":
     tasks = res.json()
     emp_data = {emp_Id: []}
     for task in tasks:
-        emp_data[emp_Id].append({"task": task.get("title"), 
+        emp_data[emp_Id].append({
+            "task": task.get("title"),
             "completed": task.get("completed"),
             "username": emp_username
         })

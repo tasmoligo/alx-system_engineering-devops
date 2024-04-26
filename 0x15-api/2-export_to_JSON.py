@@ -21,8 +21,8 @@ if __name__ == "__main__":
     for task in tasks:
         emp_data[emp_Id].append({
             "task": task.get("title"),
-            "username": emp_username,
-            "completed": task.get("completed")
+            "completed": task.get("completed"),
+            "username": emp_username
         })
     with open('{}.json'.format(emp_Id), "w") as f:
         json.dump(emp_data, f)

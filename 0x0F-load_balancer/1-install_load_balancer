@@ -6,13 +6,11 @@ sudo apt-get -y install haproxy
 
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 
-str1="global\n\tlog 127.0.0.1 local0 notice\n\tmaxconn 256\n\tuser haproxy\n\tgroup haproxy\n"
-str2="\ndefaults\n\tmode http\n\ttimeout connect 5000\n\ttimeout client 10000\n\ttimeout server 10000\n\ttimeout http-request 100\n"
-str3="\nfrontend new-server\n\tbind *:80\n\tmode http\n\tdefault_backend new-server-backend\n"
-str4="backend new-server-backend\n\tbalance roundrobin\n\tserver 168185-web-01 3.90.81.85 check\n\tserver 168185-web-02 54.159.2.205 check"
+str1="\nfrontend front_lb\n\tbind *:80\n\tmode http\n\tdefault_backend back_lb\n\n"
+str2="backend back_lb\n\tbalance roundrobin\n\tserver 168185-web-01 54.174.243.43 check\n\tserver 168185-web-02 100.25.14.151 check"
 
-echo -e "$str1$str2$str3$str4" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo -e "$str1$str2" | sudo tee -a /etc/haproxy/haproxy.cfg
 
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+echo -e "\nENABLED=1" | sudo tee -a /etc/default/haproxy
 
 sudo service haproxy start

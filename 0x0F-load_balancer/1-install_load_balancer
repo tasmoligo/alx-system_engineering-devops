@@ -7,7 +7,7 @@ sudo apt-get -y install haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 
 str1="\nfrontend front_lb\n\tbind *:80\n\tmode http\n\tdefault_backend back_lb\n\n"
-str2="backend back_lb\n\tbalance roundrobin\n\tserver 168185-web-01 54.174.243.43 check\n\tserver 168185-web-02 100.25.14.151 check"
+str2="backend back_lb\n\tbalance roundrobin\n\tserver 168185-web-01 54.174.243.43 check port 80\n\tserver 168185-web-02 100.25.14.151 check port 80"
 
 echo -e "$str1$str2" | sudo tee -a /etc/haproxy/haproxy.cfg
 
